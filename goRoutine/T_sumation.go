@@ -32,7 +32,7 @@ func sumation(sumTotal *int64, start, end int) {
 	for i := start; i < end; i++ {
 		sum += int64(i)
 	}
-
+	// sum을 만든 이유는 mutex의 사용을 최소화할 수 있음
 	mutex.Lock()
 	*sumTotal += sum
 	defer mutex.Unlock()
