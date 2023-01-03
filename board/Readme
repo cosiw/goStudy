@@ -1,0 +1,2 @@
+client : crud-starter-frontend에서 npm start
+server : go-server에서 go run main.go
