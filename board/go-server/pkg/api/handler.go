@@ -13,7 +13,7 @@ type Response struct {
 }
 
 type RequestURI struct {
-	Id string `uri:"id"`
+	Id uint `json:"id"`
 }
 
 func (apis *APIs) CreateBoard(c *gin.Context) {
@@ -31,7 +31,7 @@ func (apis *APIs) CreateBoard(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, res)
+	c.JSON(http.StatusOK, []model.Board{*res})
 }
 
 func (apis *APIs) GetBoardList(c *gin.Context) {
@@ -47,9 +47,8 @@ func (apis *APIs) GetBoardList(c *gin.Context) {
 
 func (apis *APIs) DeleteBoard(c *gin.Context) {
 	id := RequestURI{}
-	fmt.Println(id.Id)
 
-	if err := c.ShouldBindUri(&id); err != nil {
+	if err := c.ShouldBind(&id); err != nil {
 		fmt.Println(err)
 		c.JSON(http.StatusBadRequest, Response{Res: "request is not valid"})
 		return
@@ -80,5 +79,5 @@ func (apis *APIs) UpdateBoard(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, res)
+	c.JSON(http.StatusOK, []model.Board{*res})
 }

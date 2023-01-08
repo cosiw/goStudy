@@ -1,0 +1,1 @@
+DB SELECT 및 INSERT를 연습한 코드(실무에서 사용)

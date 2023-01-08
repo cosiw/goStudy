@@ -26,7 +26,7 @@ func (h *DBHandler) UpdateBoard(id uint, newBoard *model.Board) (*model.Board, e
 	return oldBoard, errors.Wrap(result.Error, "db handler error")
 }
 
-func (h *DBHandler) DeleteBoardByID(id string) error {
+func (h *DBHandler) DeleteBoardByID(id uint) error {
 
 	result := h.gDB.Delete(&model.Board{}, id)
 

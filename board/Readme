@@ -1,2 +1,4 @@
+github에 있는 CRUD frontend 코드를 받고 이를 이용한 백엔드 CRUD 구현
+
 client : crud-starter-frontend에서 npm start
 server : go-server에서 go run main.go
